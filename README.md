@@ -2,20 +2,26 @@
 
 **Master Systems Programming in Rust.**
 
-Project Sentinel is a 17-chapter curriculum that moves from basic CLI parsing to advanced Linux Kernel observability. This repository serves as the official companion for the [Voltroniq.com](https://voltroniq.com) course.
+Project Sentinel is a 17-chapter Rust systems programming curriculum that progresses from basic CLI parsing to advanced Linux kernel observability. This repository serves as the official companion for the [Project Sentinel](https://www.voltroniq.com/project-sentinel) course.
 
 ### How to use this repository
-This repository contains the completed, working codebases for the course. 
+This repository contains the completed, working codebases for the course.
+- **Volume 0 (Preludes 1-4)** is fully open-source and available here for learning.
 - **Volume 1 (Chapters 1-4)** is fully open-source and available here for learning.
-- **Volume 2 & 3** code snippets are provided here for reference. 
+- **Volume 2 & 3** provide reference code accompanying the course material.
 
-*Note: For the pedagogical breakdown, system architecture diagrams, and the step-by-step guidance, please join the full course at [Voltroniq.com](https://voltroniq.com).*
+*Note: For the pedagogical breakdown and the step-by-step guidance, please join the full course at [Project Sentinel](https://www.voltroniq.com/project-sentinel)*
 
 ---
 
 ### Folder Structure
 
-#### `/volume-1-basics`
+#### `/volume-0-prelude`
+Single file with commented examples for all four preludes.
+* `src/main.rs`
+* **Status:** 100% Complete.
+
+#### `/volume-1-foundations`
 Fully functional code for the CLI Command Scanner.
 * `src/main.rs`
 * `src/parser.rs`
@@ -30,8 +36,8 @@ Example implementations of the Module & Threading architecture.
 #### `/volume-3-kernel`
 Advanced systems integration with Linux Namespaces and eBPF.
 * **Status:** [Premium Content]
-* To prevent unauthorized distribution, the core logic for the eBPF KProbe injection and Namespace isolation has been abstracted. 
-* *To unlock the full source code for the kernel-level supervisor, [enroll in the course](https://voltroniq.com).*
+* To keep the premium curriculum self-contained, portions of the kernel instrumentation and namespace isolation implementation have been abstracted from the public repository.
+* *To unlock the full source code for the kernel-level supervisor, [enroll in the course](https://www.voltroniq.com/project-sentinel).*
 
 ---
 
@@ -43,7 +49,35 @@ To build the code in this repository:
 
 ---
 
-### License
-The code in `/volume-1-basics` is licensed under MIT. All other course material and architecture implementations are proprietary to Voltroniq.
+# Volume 2
 
-*Ready to go deeper? [Start the journey at Voltroniq.com](https://voltroniq.com).*
+```bash
+cd volume-2-systems
+cargo run
+```
+
+# Volume 3 (Linux only — WSL supported)
+
+```bash
+cd volume-3-kernel
+
+# Build the eBPF probe
+cargo build --release --target bpfel-unknown-none -p sentinel-ebpf
+
+# Build the main supervisor
+cargo build -p sentinel-core
+
+# Run with root privileges
+sudo ./target/debug/sentinel-core
+```
+---
+
+## License
+
+-   **Volume 0 & 1** – MIT License (free and open source).
+    
+-   **Volumes 2 & 3** – Proprietary to Voltroniq. The source code is provided as reference material for enrolled students. Unauthorised distribution is prohibited.
+ 
+
+📘 **Want the full learning experience?**  
+Visit [voltroniq.com/project-sentinel](https://voltroniq.com/project-sentinel) for the complete course, resources and step‑by‑step guidance.
