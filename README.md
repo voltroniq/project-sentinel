@@ -2,15 +2,18 @@
 
 **Master Systems Programming in Rust.**
 
-Project Sentinel is a 17-chapter Rust systems programming curriculum that progresses from basic CLI parsing to advanced Linux kernel observability. This repository serves as the official companion for the [Project Sentinel](https://www.voltroniq.com/project-sentinel) course.
+Project Sentinel is a 17-chapter Rust systems programming curriculum that
+progresses from basic CLI parsing to advanced Linux kernel observability.
+This repository is the official companion for the
+[Project Sentinel](https://www.voltroniq.com/project-sentinel) course.
 
 ### How to use this repository
-This repository contains the completed, working codebases for the course.
-- **Volume 0 (Preludes 1-4)** is fully open-source and available here for learning.
-- **Volume 1 (Chapters 1-4)** is fully open-source and available here for learning.
-- **Volume 2 & 3** provide reference code accompanying the course material.
+- **Volume 0 (Preludes 1–4)** — Fully open source.
+- **Volume 1 (Chapters 1–4)** — Fully open source.
+- **Volumes 2 & 3** — Reference code for enrolled students.
 
-*Note: For the pedagogical breakdown and the step-by-step guidance, please join the full course at [Project Sentinel](https://www.voltroniq.com/project-sentinel)*
+*For the full step-by-step guidance visit
+[voltroniq.com/project-sentinel](https://voltroniq.com/project-sentinel)*
 
 ---
 
@@ -18,66 +21,78 @@ This repository contains the completed, working codebases for the course.
 
 #### `/volume-0-prelude`
 Single file with commented examples for all four preludes.
-* `src/main.rs`
-* **Status:** 100% Complete.
+- `src/main.rs`
+- **Status:** 100% Complete — MIT Licensed.
 
 #### `/volume-1-foundations`
-Fully functional code for the CLI Command Scanner.
-* `src/main.rs`
-* `src/parser.rs`
-* **Status:** 100% Complete.
+Fully functional CLI threat scanner.
+- `src/main.rs`
+- **Status:** 100% Complete — MIT Licensed.
 
 #### `/volume-2-systems`
-Example implementations of the Module & Threading architecture.
-* `src/engine.rs`
-* `src/sandbox.rs`
-* **Status:** Reference implementations. 
+Modular, concurrent threat ledger with file persistence.
+- `src/main.rs`
+- `src/models.rs`
+- `src/engine.rs`
+- **Status:** Reference implementation for enrolled students.
 
 #### `/volume-3-kernel`
-Advanced systems integration with Linux Namespaces and eBPF.
-* **Status:** [Premium Content]
-* To keep the premium curriculum self-contained, portions of the kernel instrumentation and namespace isolation implementation have been abstracted from the public repository.
-* *To unlock the full source code for the kernel-level supervisor, [enroll in the course](https://www.voltroniq.com/project-sentinel).*
+Linux Namespace isolation and eBPF kernel supervisor.
+- `sentinel-core/src/main.rs`
+- `sentinel-core/src/sandbox.rs`
+- `sentinel-ebpf/src/main.rs`
+- **Status:** Reference implementation for enrolled students.
+- *[Enroll in the course](https://www.voltroniq.com/project-sentinel)
+  to unlock the full pedagogical breakdown.*
 
 ---
 
 ### System Prerequisites
-To build the code in this repository:
-1. **Rust Toolchain:** `rustup` (latest stable).
-2. **Linux Environment:** Required for Volume 3 features (Namespaces/eBPF). 
-3. **Dependencies:** `cargo build` will automatically pull required crates (Tokio, Aya, Serde).
+
+1. **Rust Toolchain:** `rustup` latest stable.
+2. **Linux Environment:** Required for Volume 3 (Namespaces & eBPF).
+   WSL2 on Windows works if your kernel is 5.15+.
+3. **Root privileges:** Volume 3 must run as `sudo`.
 
 ---
+
+### Running the Code
+
+```bash
+# Volume 0
+cd volume-0-prelude && cargo run
+
+# Volume 1
+cd volume-1-foundations && cargo run
 
 # Volume 2
+cd volume-2-systems && cargo run
 
-```bash
-cd volume-2-systems
-cargo run
-```
-
-# Volume 3 (Linux only — WSL supported)
-
-```bash
+# Volume 3 (Linux only)
 cd volume-3-kernel
 
-# Build the eBPF probe
+# Step 1: Build the eBPF probe
 cargo build --release --target bpfel-unknown-none -p sentinel-ebpf
 
-# Build the main supervisor
+# Step 2: Build the supervisor
 cargo build -p sentinel-core
 
-# Run with root privileges
+# Step 3: Run with root
 sudo ./target/debug/sentinel-core
 ```
+
 ---
 
-## License
+### License
 
--   **Volume 0 & 1** – MIT License (free and open source).
-    
--   **Volumes 2 & 3** – Proprietary to Voltroniq. The source code is provided as reference material for enrolled students. Unauthorised distribution is prohibited.
- 
+The code in `/volume-0-prelude` and `/volume-1-foundations` is released under
+the [MIT License](LICENSE).
 
-📘 **Want the full learning experience?**  
-Visit [voltroniq.com/project-sentinel](https://voltroniq.com/project-sentinel) for the complete course, resources and step‑by‑step guidance.
+The code in `/volume-2-systems` and `/volume-3-kernel` is provided as
+reference material for enrolled students. Redistribution outside of
+personal study is not permitted.
+
+---
+
+📘 **Want the full learning experience?**
+Visit [voltroniq.com/project-sentinel](https://voltroniq.com/project-sentinel)
