@@ -1,0 +1,14 @@
+[package]
+name = "sentinel-ebpf"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "sentinel-ebpf"
+path = "src/main.rs"
+
+[dependencies]
+aya-ebpf = "0.1"
+
+[profile.release]
+opt-level = 3

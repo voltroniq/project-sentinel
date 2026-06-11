@@ -1,0 +1,5 @@
+/home/navil/repos/project-sentinel/volume-3-kernel/target/release/build/serde-b041d4b6aa60a94f/build_script_build-b041d4b6aa60a94f.d: /home/navil/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/build.rs
+
+/home/navil/repos/project-sentinel/volume-3-kernel/target/release/build/serde-b041d4b6aa60a94f/build_script_build-b041d4b6aa60a94f: /home/navil/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/build.rs
+
+/home/navil/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/build.rs:

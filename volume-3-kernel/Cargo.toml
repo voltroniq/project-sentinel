@@ -1,0 +1,9 @@
+[workspace]
+members = ["sentinel-core", "sentinel-ebpf"]
+resolver = "2"
+
+# sentinel-ebpf requires nightly for the bpfel-unknown-none target.
+# Build it separately:
+#   cargo +nightly build --release --target bpfel-unknown-none -p sentinel-ebpf
+# Build sentinel-core with stable:
+#   cargo build -p sentinel-core

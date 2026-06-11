@@ -68,17 +68,34 @@ cd volume-1-foundations && cargo run
 # Volume 2
 cd volume-2-systems && cargo run
 
-# Volume 3 (Linux only)
+### Volume 3 Build Requirements
+
+- Linux kernel 5.8+ (or WSL2 with kernel 5.15+)
+- `sudo` access
+- Nightly Rust with the `rust-src` component
+
+```bash
+# One-time setup
+rustup install nightly
+rustup component add rust-src --toolchain nightly
+
+# Build the eBPF kernel probe (build `core` from source)
 cd volume-3-kernel
+cargo +nightly build -Z build-std=core --target bpfel-unknown-none --release -p sentinel-ebpf
 
-# Step 1: Build the eBPF probe
-cargo build --release --target bpfel-unknown-none -p sentinel-ebpf
-
-# Step 2: Build the supervisor
+# Build the userspace supervisor (stable is fine)
 cargo build -p sentinel-core
 
-# Step 3: Run with root
+# Run with root privileges
 sudo ./target/debug/sentinel-core
+```
+
+> **Note:** The eBPF probe must be built before `sentinel-core` because
+> `include_bytes_aligned!` embeds the probe binary at compile time.
+> The build command uses `-Z build-std=core` to compile the `core` library
+> from source – this is necessary because the `bpfel-unknown-none` target
+> has no precompiled standard library.
+
 ```
 
 ---
