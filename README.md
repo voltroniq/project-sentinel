@@ -1,6 +1,6 @@
 # Project Sentinel | Official Companion Repository
 
-**Master Systems Programming in Rust.**
+**Master Systems Programming in Rust**
 
 Project Sentinel is a 17-chapter Rust systems programming curriculum that
 progresses from basic CLI parsing to advanced Linux kernel observability.
@@ -58,17 +58,16 @@ Linux Namespace isolation and eBPF kernel supervisor.
 
 ### Running the Code
 
-```bash
-# Volume 0
+## Volume 0
 cd volume-0-prelude && cargo run
 
-# Volume 1
+## Volume 1
 cd volume-1-foundations && cargo run
 
-# Volume 2
+## Volume 2
 cd volume-2-systems && cargo run
 
-### Volume 3 Build Requirements
+## Volume 3 Build Requirements
 
 - Linux kernel 5.8+ (or WSL2 with kernel 5.15+)
 - `sudo` access
@@ -95,8 +94,6 @@ sudo ./target/debug/sentinel-core
 > The build command uses `-Z build-std=core` to compile the `core` library
 > from source – this is necessary because the `bpfel-unknown-none` target
 > has no precompiled standard library.
-
-```
 
 ---
 
